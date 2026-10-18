@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#07130d">
+<meta name="description" content="CHILLCAMP Minecraft Survival — Java và Bedrock chơi chung.">
+<title>CHILLCAMP | Minecraft Survival</title>
+<style>
+:root{--bg:#07130d;--panel:#0e2117;--green:#63f58a;--muted:#a9c0b0;--line:#234632}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(ellipse at 50% 0%,#16452b 0%,var(--bg) 55%);color:#f1fff5;font-family:system-ui,-apple-system,Segoe UI,sans-serif}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer}
+.wrap{width:min(1080px,92%);margin:auto}
+header{position:sticky;top:0;z-index:10;background:#07130deF;border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:15px 0}
+.logo{font-weight:950;letter-spacing:1px;color:var(--green);font-size:19px}
+.navlinks{display:flex;gap:18px;font-size:13px;color:var(--muted)}
+.hero{text-align:center;padding:76px 0 52px}
+.tag{display:inline-block;border:1px solid #387c4e;color:var(--green);background:#10331e;padding:7px 12px;border-radius:999px;font-size:12px;font-weight:800;letter-spacing:1px}
+h1{font-size:clamp(42px,9vw,78px);line-height:1;margin:22px 0 14px;font-weight:1000;letter-spacing:-3px}
+h1 span{color:var(--green);text-shadow:0 0 28px #37df6b40}
+.lead{max-width:620px;margin:0 auto;color:var(--muted);line-height:1.8}
+.actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:26px}
+.btn{padding:13px 19px;border-radius:12px;border:1px solid var(--line);font-weight:850}
+.primary{background:var(--green);color:#06200f;border-color:var(--green)}
+.secondary{background:#102219}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:8px auto 50px}
+.stat,.card{background:linear-gradient(145deg,#11291b,#0b1911);border:1px solid var(--line);border-radius:18px;padding:20px}
+.stat{text-align:center}.stat strong{display:block;font-size:25px;color:var(--green)}.stat small{color:var(--muted)}
+section{padding:30px 0 42px;scroll-margin-top:80px}
+.section-title{font-size:27px;margin:0 0 8px}.sub{color:var(--muted);margin:0 0 20px;line-height:1.6}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.card h3{margin:9px 0}.card p{color:var(--muted);line-height:1.7;font-size:14px;margin-bottom:0}
+.emoji{font-size:26px}
+.statusline{display:flex;align-items:center;gap:9px;font-weight:900;font-size:18px}
+.dot{width:10px;height:10px;border-radius:50%;background:#8a9a8e;display:inline-block}
+.dot.on{background:#63f58a;box-shadow:0 0 14px #63f58a}
+.dot.off{background:#ff6666}
+.address{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:10px}
+.address code{background:#07130d;border:1px solid var(--line);padding:10px;border-radius:9px;overflow-wrap:anywhere;color:#c6ffd5;flex:1}
+.smallbtn{border:1px solid #39754a;background:#163522;color:#dffff0;padding:10px 12px;border-radius:9px}
+.note{color:var(--muted);font-size:12px;line-height:1.6;margin-top:12px}
+.rules{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.rule{background:#0c1c12;border:1px solid var(--line);padding:15px;border-radius:12px}
+footer{border-top:1px solid var(--line);margin-top:25px;padding:25px 0 35px;color:var(--muted);font-size:13px;text-align:center}
+#updated{color:var(--muted);font-size:12px;margin-top:10px}
+@media(max-width:680px){.navlinks{gap:10px;font-size:12px}.grid{grid-template-columns:1fr}.stats{gap:7px}.stat{padding:13px 5px}.stat strong{font-size:20px}.hero{padding-top:55px}.rules{grid-template-columns:1fr}h1{letter-spacing:-2px}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+<a class="logo" href="#">🌿 CHILLCAMP</a>
+<nav class="navlinks"><a href="#about">Giới thiệu</a><a href="#status">Trạng thái</a><a href="#rules">Luật chơi</a></nav>
+</div></header>
+
+<main class="wrap">
+<section class="hero">
+<div class="tag">✦ SURVIVAL • JAVA + BEDROCK ✦</div>
+<h1>CHILL<span>CAMP</span></h1>
+<p class="lead">Một thế giới Minecraft để xây dựng, khám phá và sinh tồn cùng bạn bè. Vào server, lập căn cứ và viết câu chuyện của riêng bạn!</p>
+<div class="actions">
+<a class="btn primary" href="#status">⚡ Vào server</a>
+<a class="btn secondary" href="#about">Khám phá ChillCamp ↓</a>
+</div>
+</section>
+
+<div class="stats">
+<div class="stat"><strong>JAVA</strong><small>PC / Laptop</small></div>
+<div class="stat"><strong>BEDROCK</strong><small>Điện thoại / PC</small></div>
+<div class="stat"><strong>1.21.x</strong><small>Phiên bản cần xác nhận</small></div>
+</div>
+
+<section id="about">
+<h2 class="section-title">🌲 Chào mừng đến ChillCamp</h2>
+<p class="sub">Survival thân thiện, cùng chơi lâu dài và khám phá thế giới chung.</p>
+<div class="grid">
+<article class="card"><div class="emoji">⛏️</div><h3>Survival</h3><p>Thu thập tài nguyên, xây nhà, khám phá và phát triển căn cứ của bạn.</p></article>
+<article class="card"><div class="emoji">🛡️</div><h3>Bảo vệ công trình</h3><p>Tìm hiểu hệ thống claim và quy định bảo vệ khu vực trước khi xây dựng.</p></article>
+<article class="card"><div class="emoji">🎯</div><h3>Nhiệm vụ & sự kiện</h3><p>Khám phá shop, nhiệm vụ, mini-game và các hoạt động cộng đồng nếu đang được mở.</p></article>
+</div>
+</section>
+
+<section id="status">
+<h2 class="section-title">📡 Trạng thái máy chủ</h2>
+<p class="sub">Kiểm tra kết nối và số người chơi được server công bố.</p>
+<div class="grid">
+<article class="card">
+<h3>☕ Java Edition</h3>
+<div class="statusline"><span class="dot" id="jdot"></span><span id="jstatus">Đang kiểm tra...</span></div>
+<p id="jplayers">Người chơi: —</p><p id="jversion">Phiên bản: —</p>
+<div class="address"><code id="jaddr">Chưa cấu hình địa chỉ</code><button class="smallbtn" onclick="copyAddr('java')">Sao chép</button></div>
+</article>
+<article class="card">
+<h3>📱 Bedrock Edition</h3>
+<div class="statusline"><span class="dot" id="bdot"></span><span id="bstatus">Đang kiểm tra...</span></div>
+<p id="bplayers">Người chơi: —</p><p id="bversion">Phiên bản: —</p>
+<div class="address"><code id="baddr">Chưa cấu hình địa chỉ</code><button class="smallbtn" onclick="copyAddr('bedrock')">Sao chép</button></div>
+</article>
+<article class="card">
+<h3>🔄 Cập nhật</h3><p>Nhấn nút để kiểm tra lại trạng thái.</p>
+<div class="actions" style="justify-content:flex-start"><button class="btn primary" id="refresh">Kiểm tra ngay</button></div>
+<div id="updated">Chưa kiểm tra</div>
+<p class="note">API có thể lưu bộ nhớ đệm vài phút. Nếu không phản hồi, trạng thái có thể hiện “Chưa xác định”.</p>
+</article>
+</div>
+</section>
+
+<section>
+<h2 class="section-title">🧭 Cách tham gia</h2>
+<div class="grid">
+<article class="card"><h3>1. Mở Minecraft</h3><p>Chọn đúng phiên bản và vào Multiplayer (Java) hoặc Play → Servers (Bedrock).</p></article>
+<article class="card"><h3>2. Thêm máy chủ</h3><p>Nhập địa chỉ và cổng tương ứng được hiển thị ở mục trạng thái phía trên.</p></article>
+<article class="card"><h3>3. Cùng sinh tồn</h3><p>Đọc luật, tôn trọng người chơi khác và liên hệ quản trị viên khi cần hỗ trợ.</p></article>
+</div>
+</section>
+
+<section id="rules">
+<h2 class="section-title">📜 Luật ChillCamp</h2>
+<p class="sub">Giữ server vui vẻ và công bằng cho mọi người.</p>
+<div class="rules">
+<div class="rule">✅ Không hack, cheat hoặc dùng phần mềm gian lận.</div>
+<div class="rule">✅ Không phá hoại công trình của người khác.</div>
+<div class="rule">✅ Không lợi dụng bug hoặc dupe vật phẩm.</div>
+<div class="rule">✅ Không spam hoặc quảng cáo khi chưa được phép.</div>
+</div>
+</section>
+</main>
+
+<footer><div class="wrap"><strong style="color:var(--green)">🌿 CHILLCAMP</strong><p>Một thế giới, nhiều cuộc phiêu lưu.</p><span>Fan-made Minecraft community website • Not affiliated with Mojang or Microsoft.</span></div></footer>
+
+<script>
+// THAY HAI ĐỊA CHỈ DƯỚI ĐÂY BẰNG ĐỊA CHỈ THẬT TRONG PANEL HOSTING.
+// Java: nhập hostname hoặc hostname:port.
+// Bedrock: nhập hostname:UDP-port, bắt buộc có port.
+const JAVA_ADDRESS = "IP_Java";
+const BEDROCK_ADDRESS = "IP_Berrock";
+
+document.getElementById("jaddr").textContent = JAVA_ADDRESS;
+document.getElementById("baddr").textContent = BEDROCK_ADDRESS;
+
+async function checkServer(type) {
+  const java = type === "java";
+  const address = java ? JAVA_ADDRESS : BEDROCK_ADDRESS;
+  const prefix = java ? "j" : "b";
+  const status = document.getElementById(prefix + "status");
+  const dot = document.getElementById(prefix + "dot");
+  const players = document.getElementById(prefix + "players");
+  const version = document.getElementById(prefix + "version");
+
+  if (address.includes("THAY_BANG")) {
+    status.textContent = "Chưa cấu hình";
+    players.textContent = "Người chơi: —";
+    version.textContent = "Phiên bản: —";
+    dot.className = "dot";
+    return;
+  }
+  status.textContent = "Đang kiểm tra...";
+  dot.className = "dot";
+  try {
+    const endpoint = java
+      ? "https://api.mcsrvstat.us/3/" + encodeURIComponent(address)
+      : "https://api.mcsrvstat.us/bedrock/3/" + encodeURIComponent(address);
+    const response = await fetch(endpoint, {cache:"no-store"});
+    if (!response.ok) throw new Error("API " + response.status);
+    const data = await response.json();
+    if (data.online === true) {
+      status.textContent = "ONLINE";
+      dot.className = "dot on";
+      players.textContent = "Người chơi: " +
+        (data.players && Number.isFinite(data.players.online) ? data.players.online : "—") +
+        " / " + (data.players && Number.isFinite(data.players.max) ? data.players.max : "—");
+      version.textContent = "Phiên bản: " + (data.version || "Chưa có dữ liệu");
+    } else {
+      status.textContent = "OFFLINE hoặc không phản hồi";
+      dot.className = "dot off";
+      players.textContent = "Người chơi: —";
+      version.textContent = "Phiên bản: —";
+    }
+  } catch (error) {
+    status.textContent = "Chưa xác định";
+    dot.className = "dot";
+    players.textContent = "Không lấy được dữ liệu trạng thái.";
+    version.textContent = "Thử lại sau ít phút.";
+  }
+}
+
+async function refreshAll() {
+  document.getElementById("refresh").disabled = true;
+  await Promise.all([checkServer("java"), checkServer("bedrock")]);
+  document.getElementById("updated").textContent =
+    "Kiểm tra lúc " + new Date().toLocaleTimeString("vi-VN");
+  document.getElementById("refresh").disabled = false;
+}
+async function copyAddr(type) {
+  const value = type === "java" ? JAVA_ADDRESS : BEDROCK_ADDRESS;
+  try {
+    await navigator.clipboard.writeText(value);
+    alert("Đã sao chép: " + value);
+  } catch {
+    prompt("Sao chép địa chỉ này:", value);
+  }
+}
+document.getElementById("refresh").addEventListener("click", refreshAll);
+refreshAll();
+</script>
+</body>
+</html>
