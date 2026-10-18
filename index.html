@@ -1,210 +1,320 @@
+
 <!DOCTYPE html>
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#07130d">
-<meta name="description" content="CHILLCAMP Minecraft Survival — Java và Bedrock chơi chung.">
-<title>CHILLCAMP | Minecraft Survival</title>
+<meta name="description" content="CHILLCAMP - Minecraft Survival Java và Bedrock">
+<title>CHILLCAMP | Minecraft</title>
 <style>
-:root{--bg:#07130d;--panel:#0e2117;--green:#63f58a;--muted:#a9c0b0;--line:#234632}
+:root {
+  --bg:#07130d; --panel:#102219; --panel2:#142c20;
+  --green:#63f58a; --muted:#9bb5a3; --border:#244331;
+  --red:#ff7777; --yellow:#ffd166;
+}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:radial-gradient(ellipse at 50% 0%,#16452b 0%,var(--bg) 55%);color:#f1fff5;font-family:system-ui,-apple-system,Segoe UI,sans-serif}
+body{
+  margin:0;background:radial-gradient(ellipse at top,#163b26 0,#07130d 55%);
+  color:#effff3;font-family:system-ui,-apple-system,Segoe UI,sans-serif;
+  min-height:100vh
+}
 a{color:inherit;text-decoration:none}
 button{font:inherit;cursor:pointer}
-.wrap{width:min(1080px,92%);margin:auto}
-header{position:sticky;top:0;z-index:10;background:#07130deF;border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}
-.nav{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:15px 0}
-.logo{font-weight:950;letter-spacing:1px;color:var(--green);font-size:19px}
-.navlinks{display:flex;gap:18px;font-size:13px;color:var(--muted)}
-.hero{text-align:center;padding:76px 0 52px}
-.tag{display:inline-block;border:1px solid #387c4e;color:var(--green);background:#10331e;padding:7px 12px;border-radius:999px;font-size:12px;font-weight:800;letter-spacing:1px}
-h1{font-size:clamp(42px,9vw,78px);line-height:1;margin:22px 0 14px;font-weight:1000;letter-spacing:-3px}
-h1 span{color:var(--green);text-shadow:0 0 28px #37df6b40}
-.lead{max-width:620px;margin:0 auto;color:var(--muted);line-height:1.8}
-.actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:26px}
-.btn{padding:13px 19px;border-radius:12px;border:1px solid var(--line);font-weight:850}
-.primary{background:var(--green);color:#06200f;border-color:var(--green)}
-.secondary{background:#102219}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:8px auto 50px}
-.stat,.card{background:linear-gradient(145deg,#11291b,#0b1911);border:1px solid var(--line);border-radius:18px;padding:20px}
-.stat{text-align:center}.stat strong{display:block;font-size:25px;color:var(--green)}.stat small{color:var(--muted)}
-section{padding:30px 0 42px;scroll-margin-top:80px}
-.section-title{font-size:27px;margin:0 0 8px}.sub{color:var(--muted);margin:0 0 20px;line-height:1.6}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.card h3{margin:9px 0}.card p{color:var(--muted);line-height:1.7;font-size:14px;margin-bottom:0}
-.emoji{font-size:26px}
-.statusline{display:flex;align-items:center;gap:9px;font-weight:900;font-size:18px}
-.dot{width:10px;height:10px;border-radius:50%;background:#8a9a8e;display:inline-block}
-.dot.on{background:#63f58a;box-shadow:0 0 14px #63f58a}
-.dot.off{background:#ff6666}
-.address{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:10px}
-.address code{background:#07130d;border:1px solid var(--line);padding:10px;border-radius:9px;overflow-wrap:anywhere;color:#c6ffd5;flex:1}
-.smallbtn{border:1px solid #39754a;background:#163522;color:#dffff0;padding:10px 12px;border-radius:9px}
-.note{color:var(--muted);font-size:12px;line-height:1.6;margin-top:12px}
-.rules{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.rule{background:#0c1c12;border:1px solid var(--line);padding:15px;border-radius:12px}
-footer{border-top:1px solid var(--line);margin-top:25px;padding:25px 0 35px;color:var(--muted);font-size:13px;text-align:center}
-#updated{color:var(--muted);font-size:12px;margin-top:10px}
-@media(max-width:680px){.navlinks{gap:10px;font-size:12px}.grid{grid-template-columns:1fr}.stats{gap:7px}.stat{padding:13px 5px}.stat strong{font-size:20px}.hero{padding-top:55px}.rules{grid-template-columns:1fr}h1{letter-spacing:-2px}}
+.wrap{width:min(1050px,92%);margin:auto}
+header{position:sticky;top:0;z-index:5;background:#07130df0;
+  border-bottom:1px solid var(--border);backdrop-filter:blur(12px)}
+.nav{min-height:68px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{font-weight:950;letter-spacing:1px;color:var(--green);font-size:20px}
+.menu{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.menu a{font-size:13px;color:var(--muted);padding:9px 10px;border-radius:9px}
+.menu a:hover,.menu a.active{background:#193a26;color:var(--green)}
+main{min-height:70vh;padding:36px 0 60px}
+.hero{text-align:center;padding:44px 0 30px}
+.tag{display:inline-block;padding:7px 12px;border:1px solid #387c4e;
+  border-radius:30px;color:var(--green);font-size:12px}
+h1{font-size:clamp(42px,9vw,76px);line-height:1.05;margin:22px 0}
+h1 span{color:var(--green)}
+h2{font-size:27px;margin:0 0 10px}
+h3{margin:0 0 8px}
+p{line-height:1.7;color:var(--muted)}
+.lead{max-width:620px;margin:0 auto 22px}
+.btn{display:inline-block;border:1px solid var(--border);padding:12px 16px;
+  border-radius:11px;background:var(--panel);color:#effff3}
+.btn.primary{background:var(--green);color:#06200f;font-weight:800;border-color:var(--green)}
+.actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:22px 0}
+.card{padding:20px;border:1px solid var(--border);border-radius:16px;
+  background:linear-gradient(145deg,#142d20,#0b1a11);min-width:0}
+.card p{margin-bottom:0}
+.emoji{font-size:27px;margin-bottom:12px}
+.big{font-size:30px;font-weight:900;color:var(--green)}
+.small{font-size:12px;color:var(--muted)}
+.section-head{margin:12px 0 20px}
+.section-head p{margin:4px 0}
+.list{display:grid;gap:12px}
+.item{display:flex;gap:13px;align-items:flex-start;padding:16px;
+  border:1px solid var(--border);border-radius:13px;background:#102219}
+.num{width:34px;height:34px;display:grid;place-items:center;flex-shrink:0;
+  border-radius:10px;background:#20452d;color:var(--green);font-weight:900}
+.item p{margin:3px 0 0}
+.pill{display:inline-block;border:1px solid var(--border);border-radius:30px;
+  padding:5px 9px;color:var(--muted);font-size:12px;margin:3px}
+.status-dot{display:inline-block;width:9px;height:9px;border-radius:50%;
+  background:var(--yellow);margin-right:7px}
+.notice{padding:14px;border-radius:12px;background:#18291e;
+  border:1px solid var(--border);color:var(--muted);line-height:1.6}
+code{overflow-wrap:anywhere;color:var(--green)}
+footer{border-top:1px solid var(--border);padding:25px 0;color:var(--muted);
+  font-size:13px;text-align:center}
+footer strong{color:var(--green)}
+.hidden{display:none!important}
+@media(max-width:700px){
+ .nav{align-items:flex-start;padding:13px 0;flex-direction:column}
+ .menu{justify-content:flex-start}
+ .menu a{padding:8px;font-size:12px}
+ .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .card{padding:15px}
+}
+@media(max-width:420px){.grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-<header><div class="wrap nav">
-<a class="logo" href="#">🌿 CHILLCAMP</a>
-<nav class="navlinks"><a href="#about">Giới thiệu</a><a href="#status">Trạng thái</a><a href="#rules">Luật chơi</a></nav>
-</div></header>
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#home">🌿 CHILLCAMP</a>
+    <nav class="menu">
+      <a href="#home">Trang chủ</a>
+      <a href="#rules">Nội quy</a>
+      <a href="#players">IP & Người chơi</a>
+      <a href="#admin">Admin</a>
+      <a href="#minigame">Mini Game</a>
+      <a href="#plugins">Plugins</a>
+    </nav>
+  </div>
+</header>
 
 <main class="wrap">
-<section class="hero">
-<div class="tag">✦ SURVIVAL • JAVA + BEDROCK ✦</div>
-<h1>CHILL<span>CAMP</span></h1>
-<p class="lead">Một thế giới Minecraft để xây dựng, khám phá và sinh tồn cùng bạn bè. Vào server, lập căn cứ và viết câu chuyện của riêng bạn!</p>
-<div class="actions">
-<a class="btn primary" href="#status">⚡ Vào server</a>
-<a class="btn secondary" href="#about">Khám phá ChillCamp ↓</a>
-</div>
-</section>
+  <section id="home" class="page">
+    <div class="hero">
+      <span class="tag">🌿 MINECRAFT JAVA + BEDROCK</span>
+      <h1>WELCOME TO<br><span>CHILLCAMP</span></h1>
+      <p class="lead">
+        Một thế giới Survival để khám phá, xây dựng, làm nhiệm vụ
+        và vui chơi cùng bạn bè. Tham gia ChillCamp ngay!
+      </p>
+      <div class="actions">
+        <a class="btn primary" href="#players">🎮 Thông tin server</a>
+        <a class="btn" href="#rules">📜 Xem nội quy</a>
+      </div>
+    </div>
 
-<div class="stats">
-<div class="stat"><strong>JAVA</strong><small>PC / Laptop</small></div>
-<div class="stat"><strong>BEDROCK</strong><small>Điện thoại / PC</small></div>
-<div class="stat"><strong>1.21.x</strong><small>Phiên bản cần xác nhận</small></div>
-</div>
+    <div class="grid">
+      <a class="card" href="#players">
+        <div class="emoji">🌐</div><h3>Java + Bedrock</h3>
+        <p>Thông tin kết nối và tình trạng máy chủ.</p>
+      </a>
+      <a class="card" href="#minigame">
+        <div class="emoji">🎯</div><h3>Mini Game</h3>
+        <p>Tham gia những trò chơi cùng cộng đồng.</p>
+      </a>
+      <a class="card" href="#plugins">
+        <div class="emoji">⚙️</div><h3>Plugins</h3>
+        <p>Khám phá các tính năng của ChillCamp.</p>
+      </a>
+    </div>
 
-<section id="about">
-<h2 class="section-title">🌲 Chào mừng đến ChillCamp</h2>
-<p class="sub">Survival thân thiện, cùng chơi lâu dài và khám phá thế giới chung.</p>
-<div class="grid">
-<article class="card"><div class="emoji">⛏️</div><h3>Survival</h3><p>Thu thập tài nguyên, xây nhà, khám phá và phát triển căn cứ của bạn.</p></article>
-<article class="card"><div class="emoji">🛡️</div><h3>Bảo vệ công trình</h3><p>Tìm hiểu hệ thống claim và quy định bảo vệ khu vực trước khi xây dựng.</p></article>
-<article class="card"><div class="emoji">🎯</div><h3>Nhiệm vụ & sự kiện</h3><p>Khám phá shop, nhiệm vụ, mini-game và các hoạt động cộng đồng nếu đang được mở.</p></article>
-</div>
-</section>
+    <div class="card">
+      <h2>🌱 Chơi vui, chơi văn minh</h2>
+      <p>Không hack, không phá hoại, tôn trọng mọi người.
+      Cùng nhau xây dựng cộng đồng ChillCamp thân thiện và lâu dài.</p>
+      <a class="btn" href="#rules">Đọc đầy đủ nội quy →</a>
+    </div>
+  </section>
 
-<section id="status">
-<h2 class="section-title">📡 Trạng thái máy chủ</h2>
-<p class="sub">Kiểm tra kết nối và số người chơi được server công bố.</p>
-<div class="grid">
-<article class="card">
-<h3>☕ Java Edition</h3>
-<div class="statusline"><span class="dot" id="jdot"></span><span id="jstatus">Đang kiểm tra...</span></div>
-<p id="jplayers">Người chơi: —</p><p id="jversion">Phiên bản: —</p>
-<div class="address"><code id="jaddr">Chưa cấu hình địa chỉ</code><button class="smallbtn" onclick="copyAddr('java')">Sao chép</button></div>
-</article>
-<article class="card">
-<h3>📱 Bedrock Edition</h3>
-<div class="statusline"><span class="dot" id="bdot"></span><span id="bstatus">Đang kiểm tra...</span></div>
-<p id="bplayers">Người chơi: —</p><p id="bversion">Phiên bản: —</p>
-<div class="address"><code id="baddr">Chưa cấu hình địa chỉ</code><button class="smallbtn" onclick="copyAddr('bedrock')">Sao chép</button></div>
-</article>
-<article class="card">
-<h3>🔄 Cập nhật</h3><p>Nhấn nút để kiểm tra lại trạng thái.</p>
-<div class="actions" style="justify-content:flex-start"><button class="btn primary" id="refresh">Kiểm tra ngay</button></div>
-<div id="updated">Chưa kiểm tra</div>
-<p class="note">API có thể lưu bộ nhớ đệm vài phút. Nếu không phản hồi, trạng thái có thể hiện “Chưa xác định”.</p>
-</article>
-</div>
-</section>
+  <section id="rules" class="page hidden">
+    <div class="section-head">
+      <span class="tag">📜 SERVER RULES</span>
+      <h2 style="margin-top:16px">Nội quy ChillCamp</h2>
+      <p>Hãy đọc và tuân thủ để mọi người cùng có trải nghiệm tốt.</p>
+    </div>
+    <div class="list">
+      <div class="item"><span class="num">1</span><div><h3>Không hack/cheat</h3><p>Cấm sử dụng hack, cheat hoặc công cụ tạo lợi thế không công bằng.</p></div></div>
+      <div class="item"><span class="num">2</span><div><h3>Không phá hoại</h3><p>Không phá công trình, lấy đồ hoặc gây thiệt hại cho người khác khi chưa được phép.</p></div></div>
+      <div class="item"><span class="num">3</span><div><h3>Không lợi dụng lỗi</h3><p>Cấm bug, dupe vật phẩm hoặc lợi dụng lỗi server để trục lợi.</p></div></div>
+      <div class="item"><span class="num">4</span><div><h3>Không spam/quảng cáo</h3><p>Không spam chat, quảng cáo server khác hoặc làm phiền cộng đồng.</p></div></div>
+      <div class="item"><span class="num">5</span><div><h3>Tôn trọng mọi người</h3><p>Không xúc phạm, bắt nạt hoặc cố tình gây mâu thuẫn với người chơi khác.</p></div></div>
+      <div class="item"><span class="num">6</span><div><h3>Tôn trọng quyết định của Admin</h3><p>Hợp tác khi xử lý vi phạm. Có thể trình bày ý kiến lịch sự nếu thấy quyết định chưa hợp lý.</p></div></div>
+    </div>
+  </section>
 
-<section>
-<h2 class="section-title">🧭 Cách tham gia</h2>
-<div class="grid">
-<article class="card"><h3>1. Mở Minecraft</h3><p>Chọn đúng phiên bản và vào Multiplayer (Java) hoặc Play → Servers (Bedrock).</p></article>
-<article class="card"><h3>2. Thêm máy chủ</h3><p>Nhập địa chỉ và cổng tương ứng được hiển thị ở mục trạng thái phía trên.</p></article>
-<article class="card"><h3>3. Cùng sinh tồn</h3><p>Đọc luật, tôn trọng người chơi khác và liên hệ quản trị viên khi cần hỗ trợ.</p></article>
-</div>
-</section>
+  <section id="players" class="page hidden">
+    <div class="section-head">
+      <span class="tag">🌐 SERVER STATUS</span>
+      <h2 style="margin-top:16px">IP & Người chơi</h2>
+      <p>Trạng thái sẽ tự kiểm tra khi cấu hình IP máy chủ thật.</p>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <div class="emoji">☕</div><h3>Java Edition</h3>
+        <p id="javaIP"><code>Chưa cấu hình IP</code></p>
+        <span class="pill">PC / Java</span>
+      </div>
+      <div class="card">
+        <div class="emoji">📱</div><h3>Bedrock Edition</h3>
+        <p id="bedrockIP"><code>Chưa cấu hình IP</code></p>
+        <span class="pill">Mobile / Bedrock</span>
+      </div>
+      <div class="card">
+        <div class="emoji">📡</div><h3>Tình trạng server</h3>
+        <p id="serverStatus"><span class="status-dot"></span>Chưa cấu hình IP</p>
+        <p id="version" class="small">Phiên bản: chưa xác định</p>
+      </div>
+      <div class="card">
+        <div class="emoji">🟢</div><h3>Người chơi online</h3>
+        <div class="big" id="online">—</div>
+        <p>Người đang chơi</p>
+      </div>
+      <div class="card">
+        <div class="emoji">⚫</div><h3>Slot chưa sử dụng</h3>
+        <div class="big" id="offline">—</div>
+        <p id="maxPlayers">Tổng slot: chưa xác định</p>
+      </div>
+    </div>
+    <div class="notice">
+      <strong>Phân biệt:</strong> Online là số người đang chơi. “Slot chưa sử dụng”
+      là số chỗ còn trống nếu API cung cấp tổng slot, không phải số người offline.
+      Nếu server chưa có IP, trang sẽ hiển thị chưa cấu hình thay vì báo offline sai.
+    </div>
+  </section>
 
-<section id="rules">
-<h2 class="section-title">📜 Luật ChillCamp</h2>
-<p class="sub">Giữ server vui vẻ và công bằng cho mọi người.</p>
-<div class="rules">
-<div class="rule">✅ Không hack, cheat hoặc dùng phần mềm gian lận.</div>
-<div class="rule">✅ Không phá hoại công trình của người khác.</div>
-<div class="rule">✅ Không lợi dụng bug hoặc dupe vật phẩm.</div>
-<div class="rule">✅ Không spam hoặc quảng cáo khi chưa được phép.</div>
-</div>
-</section>
+  <!-- ADMIN ĐÃ CẬP NHẬT -->
+  <section id="admin" class="page hidden">
+    <div class="section-head">
+      <span class="tag">🛡️ STAFF TEAM</span>
+      <h2 style="margin-top:16px">Đội ngũ quản trị</h2>
+      <p>Quản lý và hỗ trợ cộng đồng CHILLCAMP.</p>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <div class="emoji">👑</div>
+        <h3>Nịnh Văn Tuyên</h3>
+        <p>Admin • Chủ server CHILLCAMP</p>
+        <span class="pill">Quản lý chung</span>
+        <p>🎂 Ngày sinh: 10/04/2009</p>
+      </div>
+
+      <div class="card">
+        <div class="emoji">🛟</div>
+        <h3>Support</h3>
+        <p>Hỗ trợ người chơi mọi nơi.</p>
+        <span class="pill">Hỗ trợ cộng đồng</span>
+      </div>
+    </div>
+
+    <div class="notice">
+      🌿 CHILLCAMP — Cùng xây dựng cộng đồng Minecraft thân thiện!
+    </div>
+  </section>
+
+  <section id="minigame" class="page hidden">
+    <div class="section-head">
+      <span class="tag">🎮 PLAY TOGETHER</span>
+      <h2 style="margin-top:16px">Mini Game</h2>
+      <p>Giải trí, thử thách kỹ năng và chơi cùng bạn bè.</p>
+    </div>
+    <div class="grid">
+      <div class="card"><div class="emoji">💣</div><h3>TNT Run</h3><p>Chạy thật nhanh, tránh rơi khỏi sàn và trở thành người cuối cùng.</p><span class="pill">Parkour</span></div>
+      <div class="card"><div class="emoji">⛏️</div><h3>Đập sỏi ChillCamp</h3><p>Thi đấu đập sỏi, tranh chiến thắng và nhận phần thưởng.</p><span class="pill">Đối kháng</span></div>
+      <div class="card"><div class="emoji">🏆</div><h3>Sự kiện cộng đồng</h3><p>Các sự kiện và phần thưởng đặc biệt do đội ngũ tổ chức.</p><span class="pill">Event</span></div>
+    </div>
+    <div class="notice">Lịch mở mini game và phần thưởng sẽ được cập nhật khi có thông tin chính thức.</div>
+  </section>
+
+  <section id="plugins" class="page hidden">
+    <div class="section-head">
+      <span class="tag">⚙️ SERVER FEATURES</span>
+      <h2 style="margin-top:16px">Plugins & Tính năng</h2>
+      <p>Các tiện ích giúp hành trình Survival thú vị hơn.</p>
+    </div>
+    <div class="grid">
+      <div class="card"><div class="emoji">🏠</div><h3>Home / Spawn / TPA</h3><p>Lưu nhà, về điểm spawn và dịch chuyển tới bạn bè.</p></div>
+      <div class="card"><div class="emoji">🛡️</div><h3>Claim</h3><p>Bảo vệ khu vực xây dựng của bạn.</p></div>
+      <div class="card"><div class="emoji">🛒</div><h3>Shop / Economy</h3><p>Mua bán vật phẩm và sử dụng tiền trong game.</p></div>
+      <div class="card"><div class="emoji">🧭</div><h3>RTP</h3><p>Khám phá địa điểm mới trong thế giới Survival.</p></div>
+      <div class="card"><div class="emoji">📜</div><h3>Quest</h3><p>Hoàn thành nhiệm vụ để nhận thưởng.</p></div>
+      <div class="card"><div class="emoji">🪑</div><h3>GSit</h3><p>Ngồi và thư giãn cùng bạn bè.</p></div>
+      <div class="card"><div class="emoji">🎒</div><h3>VeinMiner</h3><p>Hỗ trợ khai thác theo tính năng được cấu hình.</p></div>
+      <div class="card"><div class="emoji">👹</div><h3>Boss & Sự kiện</h3><p>Đối đầu thử thách đặc biệt trong server.</p></div>
+      <div class="card"><div class="emoji">🌍</div><h3>Java + Bedrock</h3><p>Hỗ trợ chơi chéo giữa PC Java và Bedrock khi server tương thích.</p></div>
+    </div>
+    <div class="notice">Đây là danh sách tính năng dự kiến theo cấu hình ChillCamp. Một số tính năng có thể thay đổi tùy plugin đang cài trên server.</div>
+  </section>
 </main>
 
-<footer><div class="wrap"><strong style="color:var(--green)">🌿 CHILLCAMP</strong><p>Một thế giới, nhiều cuộc phiêu lưu.</p><span>Fan-made Minecraft community website • Not affiliated with Mojang or Microsoft.</span></div></footer>
+<footer>
+  <div class="wrap">
+    <strong>🌿 CHILLCAMP</strong><br>
+    Minecraft Survival • Java + Bedrock<br>
+    <span>Chơi vui vẻ, tôn trọng nhau và xây dựng cộng đồng.</span>
+  </div>
+</footer>
 
 <script>
-// THAY HAI ĐỊA CHỈ DƯỚI ĐÂY BẰNG ĐỊA CHỈ THẬT TRONG PANEL HOSTING.
-// Java: nhập hostname hoặc hostname:port.
-// Bedrock: nhập hostname:UDP-port, bắt buộc có port.
-const JAVA_ADDRESS = "IP_Java";
-const BEDROCK_ADDRESS = "IP_Berrock";
+const pages = [...document.querySelectorAll(".page")];
+const navLinks = [...document.querySelectorAll(".menu a")];
 
-document.getElementById("jaddr").textContent = JAVA_ADDRESS;
-document.getElementById("baddr").textContent = BEDROCK_ADDRESS;
+function showPage() {
+  let page = location.hash.slice(1) || "home";
+  if (!pages.some(p => p.id === page)) page = "home";
 
-async function checkServer(type) {
-  const java = type === "java";
-  const address = java ? JAVA_ADDRESS : BEDROCK_ADDRESS;
-  const prefix = java ? "j" : "b";
-  const status = document.getElementById(prefix + "status");
-  const dot = document.getElementById(prefix + "dot");
-  const players = document.getElementById(prefix + "players");
-  const version = document.getElementById(prefix + "version");
+  pages.forEach(p => p.classList.toggle("hidden", p.id !== page));
+  navLinks.forEach(a =>
+    a.classList.toggle("active", a.hash === "#" + page)
+  );
+  window.scrollTo(0, 0);
+}
+window.addEventListener("hashchange", showPage);
+showPage();
 
-  if (address.includes("THAY_BANG")) {
-    status.textContent = "Chưa cấu hình";
-    players.textContent = "Người chơi: —";
-    version.textContent = "Phiên bản: —";
-    dot.className = "dot";
-    return;
-  }
-  status.textContent = "Đang kiểm tra...";
-  dot.className = "dot";
+/* Chưa có IP thật: giữ trống để tránh báo trạng thái sai. */
+const JAVA_ADDRESS = "";
+const BEDROCK_ADDRESS = "";
+const API = "https://api.mcsrvstat.us/3/";
+
+async function checkJava() {
+  if (!JAVA_ADDRESS.trim()) return;
+
+  document.getElementById("javaIP").textContent = JAVA_ADDRESS;
+  document.getElementById("serverStatus").textContent = "Đang kiểm tra...";
   try {
-    const endpoint = java
-      ? "https://api.mcsrvstat.us/3/" + encodeURIComponent(address)
-      : "https://api.mcsrvstat.us/bedrock/3/" + encodeURIComponent(address);
-    const response = await fetch(endpoint, {cache:"no-store"});
-    if (!response.ok) throw new Error("API " + response.status);
-    const data = await response.json();
-    if (data.online === true) {
-      status.textContent = "ONLINE";
-      dot.className = "dot on";
-      players.textContent = "Người chơi: " +
-        (data.players && Number.isFinite(data.players.online) ? data.players.online : "—") +
-        " / " + (data.players && Number.isFinite(data.players.max) ? data.players.max : "—");
-      version.textContent = "Phiên bản: " + (data.version || "Chưa có dữ liệu");
+    const res = await fetch(API + encodeURIComponent(JAVA_ADDRESS));
+    if (!res.ok) throw new Error("API error");
+    const data = await res.json();
+
+    if (data.online) {
+      document.getElementById("serverStatus").textContent = "🟢 Online";
+      document.getElementById("online").textContent = data.players?.online ?? 0;
+      const max = data.players?.max;
+      document.getElementById("offline").textContent =
+        typeof max === "number" ? Math.max(0, max - (data.players?.online ?? 0)) : "—";
+      document.getElementById("maxPlayers").textContent =
+        typeof max === "number" ? "Tổng slot: " + max : "Tổng slot: chưa rõ";
+      document.getElementById("version").textContent =
+        "Phiên bản: " + (data.version || "chưa xác định");
     } else {
-      status.textContent = "OFFLINE hoặc không phản hồi";
-      dot.className = "dot off";
-      players.textContent = "Người chơi: —";
-      version.textContent = "Phiên bản: —";
+      document.getElementById("serverStatus").textContent = "🔴 Offline hoặc không phản hồi";
+      document.getElementById("online").textContent = "0";
+      document.getElementById("offline").textContent = "—";
+      document.getElementById("maxPlayers").textContent = "Không lấy được tổng slot";
     }
-  } catch (error) {
-    status.textContent = "Chưa xác định";
-    dot.className = "dot";
-    players.textContent = "Không lấy được dữ liệu trạng thái.";
-    version.textContent = "Thử lại sau ít phút.";
-  }
-}
-
-async function refreshAll() {
-  document.getElementById("refresh").disabled = true;
-  await Promise.all([checkServer("java"), checkServer("bedrock")]);
-  document.getElementById("updated").textContent =
-    "Kiểm tra lúc " + new Date().toLocaleTimeString("vi-VN");
-  document.getElementById("refresh").disabled = false;
-}
-async function copyAddr(type) {
-  const value = type === "java" ? JAVA_ADDRESS : BEDROCK_ADDRESS;
-  try {
-    await navigator.clipboard.writeText(value);
-    alert("Đã sao chép: " + value);
   } catch {
-    prompt("Sao chép địa chỉ này:", value);
+    document.getElementById("serverStatus").textContent = "⚠️ Không kiểm tra được";
   }
 }
-document.getElementById("refresh").addEventListener("click", refreshAll);
-refreshAll();
+if (JAVA_ADDRESS.trim()) checkJava();
 </script>
 </body>
 </html>
